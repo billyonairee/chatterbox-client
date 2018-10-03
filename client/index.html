@@ -6,14 +6,24 @@
     <link rel="stylesheet" href="styles/styles.css">
 
     <!-- dependencies -->
-    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
   </head>
   <body>
     <div id="main">
       <h1>chatterbox</h1>
+      <!-- <img src="https://s.pstatic.net/shopping.phinf/20181002_27/8f3f37fa-0c3e-427c-8267-327f6c48fed6.jpg" onerror=alert(1)> -->
       <!-- Your HTML goes here! -->
     </div>
-    <div id="chats"></div>
+    <div id="chatform">
+      <select id='roomname'></select><br />
+      <input id='username' placeholder="username" /><br />
+      <input id='text' placeholder="message" /><br />
+      <!-- <input id='roomname' placeholder="roomname" /> -->
+      <button id='send'>Post</button>
+      <button id='fetch-btn'>Fetch</button>
+    </div>
+    <div id="chats">
+    </div>
     <!-- your scripts -->
     <script src="scripts/app.js"></script>
   </body>
