@@ -31,7 +31,36 @@ const app = {
   }
 };
 
-const fetchMessages = (data) =>{
+// const fetchMessages = (data) =>{
+//   // prompt("Hello, What's your name?"),
+//   // console.log($("#roomname").val()
+//   $.ajax({
+//     url,
+//     success: (data) => {
+//       $("#chats").html("");
+//       data.forEach(({ username, text, roomname, date }) => {
+//         username = username.replace(/<\/?[^>]+(>|$)/g, "");
+//         text = text.replace(/<\/?[^>]+(>|$)/g, "");
+//         roomname = roomname.replace(/<\/?[^>]+(>|$)/g, "");
+//         // const $p = $(`<p>${username}: ${text} (${roomname} @${date}) <p/>`);
+//         const $p = $(`<p>${username}: ${text} (${date}) <p/>`);
+//         $("#chats").append($p);
+//       })
+      
+//       for(var i = 0; i < data.length; i++){
+//         // console.log($("#roomname").children().attr("id"))
+//         data[i].roomname = data[i].roomname.replace(/<\/?[^>]+(>|$)/g, "");
+//         const childrenId = $("#roomname").children(`#${data[i].roomname}`).attr("id")
+//         if(childrenId === undefined){
+//           const $option = $(`<option id="${data[i].roomname}">${data[i].roomname}</option>`)
+//           $("#roomname").append($option);
+//         }
+//     }
+//   }
+//   })
+// };
+
+const fetchMessages = (data) => {
   // prompt("Hello, What's your name?"),
   // console.log($("#roomname").val()
   $.ajax({
@@ -45,17 +74,28 @@ const fetchMessages = (data) =>{
         // const $p = $(`<p>${username}: ${text} (${roomname} @${date}) <p/>`);
         const $p = $(`<p>${username}: ${text} (${date}) <p/>`);
         $("#chats").append($p);
-      })
-      
-      for(var i = 0; i < data.length; i++){
-        // console.log($("#roomname").children().attr("id"))
-        const childrenId = $("#roomname").children(`#${data[i].roomname}`).attr("id")
-        if(childrenId === undefined){
-          const $option = $(`<option id="${data[i].roomname}">${data[i].roomname}</option>`)
+        
+        // const childrenId = $("#roomname").children(`#${roomname}`).attr("id");
+        // const childrenId = $("#roomname").attr("id");
+        // if (childrenId === undefined) {
+          // const $option = $(`<option id="${roomname}">${roomname}</option>`);
+        if ($(`#roomname option[id='${roomname}']`).length === 0) {
+          const $option = $(`<option id="${roomname}">${roomname}</option>`);
           $("#roomname").append($option);
         }
+
+      })
+
+      // for (var i = 0; i < data.length; i++) {
+      //   // console.log($("#roomname").children().attr("id"))
+      //   data[i].roomname = data[i].roomname.replace(/<\/?[^>]+(>|$)/g, "");
+      //   const childrenId = $("#roomname").children(`#${data[i].roomname}`).attr("id")
+      //   if (childrenId === undefined) {
+      //     const $option = $(`<option id="${data[i].roomname}">${data[i].roomname}</option>`)
+      //     $("#roomname").append($option);
+      //   }
+      // }
     }
-  }
   })
 };
 
